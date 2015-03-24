@@ -17,3 +17,9 @@
 //= require bootstrap/modal
 //= require_tree .
 
+<script>
+	console.log('got into javascript file')
+	$('#myModal').on('hide', function () {
+	 $('div.modal-body').html('');
+</script>
+
