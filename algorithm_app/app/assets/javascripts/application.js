@@ -12,14 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/bootstrap-tooltip
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap/modal
 //= require_tree .
 
 <script>
-	console.log('got into javascript file')
-	$('#myModal').on('hide', function () {
-	 $('div.modal-body').html('');
+	$(function(){
+	  $("a[rel='tooltip']").tooltip();
+
+	  $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
+		console.log('got into javascript function');
+        $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+		});
+	});
+
+
 </script>
 
