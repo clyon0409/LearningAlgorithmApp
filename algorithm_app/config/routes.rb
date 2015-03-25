@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'categories#index'
 
   get "categories/:id" => 'categories#show', :as => :category_show
+  get "challenges/:id"    => 'challenges#show', :as => :challenges_show
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
