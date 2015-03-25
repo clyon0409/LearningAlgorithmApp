@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap/modal
+//= require jquery.simple.timer
+//= require timer
 //= require_tree .
 
 <script>

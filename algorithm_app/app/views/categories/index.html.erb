@@ -49,30 +49,11 @@
 								 			tooltip_message = "This challenge should take " + time_in_minutes.to_s + " minutes to complete. Do not start unless you have the time." 
 								 		end
 								 	%>
-
-									<button type="button" class="btn btn-default btn-xs"><a data-toggle="modal" data-target="#myModal" rel="tooltip" title="<%= tooltip_message %>">
-									  <%= challenge.name.to_s.strip %>
-									</a></button>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									        <h4 class="modal-title" id="myModalLabel"><%= challenge.name.to_s.strip %></h4>
-									      </div>
-									      <div class="modal-body">
-									      	<% unless challenge.video.nil? or challenge.video.empty?%>
-									      	 	<iframe width="560" height="315" src="<%= category.video%>" frameborder="0" allowfullscreen></iframe>
-									      	 <% end %>
-									        <%= challenge.content %>
-									      </div>
-									      <div class="modal-footer">
-									        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									      </div>
-									    </div>
-									  </div>
-									</div>
+									<button type="button" class="btn btn-default btn-xs">
+										<a href='/challenges/<%= challenge.id%>' rel="tooltip" title="<%= tooltip_message %>">
+											  <%= challenge.name.to_s.strip %>
+										</a>
+									</button>
 								<% else %> <!-- challenge completed, disable link -->
 									<button type="button" class="btn btn-success btn-xs">
 										  <%= challenge.name.to_s.strip %>

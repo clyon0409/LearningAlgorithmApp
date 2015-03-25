@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
 	def show
-		render 'show'
+		@challenge = Challenge.find(params[:id])
 	end
 end
