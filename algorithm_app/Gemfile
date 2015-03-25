@@ -50,3 +50,8 @@ gem 'rails-footnotes', '>= 4.0.0', '<5'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+#needed to enable bootstrap tool tips
+#the following command should be run after gem is installed using bundle install
+#  ==> rails g bootstrap:tooltip:install
+gem 'bootstrap-tooltip-rails'

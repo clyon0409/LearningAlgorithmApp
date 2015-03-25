@@ -1,5 +1,5 @@
 <div class='container'>
-	<h4>You have completed <%=@total_completed %>/<%=@total_challenges %></h4>
+	<h3>You have completed <%= @total_completed %>/<%= @total_challenges %>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
@@ -39,7 +39,18 @@
 							<% for challenge in category.challenges.order(:duration) %>
 								<% unless challenge.status %> 
 								 <!-- if challenge has not been completed, create link and allow modal -->
-									<button type="button" class="btn btn-default btn-xs"><a data-toggle="modal" data-target="#myModal">
+								 	<% time_in_minutes = challenge.duration.to_i/1000/60
+
+								 		if time_in_minutes > 60 
+								 			time_hours = time_in_minutes/60
+								 			time_minutes = time_in_minutes - time_hours*60
+								 			tooltip_message = "This challenge should take " + time_hours.to_s + " hours and " + time_minutes.to_s + " minutes to complete. Do not start unless you have the time." 
+								 		else
+								 			tooltip_message = "This challenge should take " + time_in_minutes.to_s + " minutes to complete. Do not start unless you have the time." 
+								 		end
+								 	%>
+
+									<button type="button" class="btn btn-default btn-xs"><a data-toggle="modal" data-target="#myModal" rel="tooltip" title="<%= tooltip_message %>">
 									  <%= challenge.name.to_s.strip %>
 									</a></button>
 									<!-- Modal -->
@@ -74,3 +85,5 @@
 		</tbody>
 	</table>
 </div>
+
+<%= yield :javascript %> 
