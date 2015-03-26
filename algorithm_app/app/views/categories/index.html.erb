@@ -12,11 +12,11 @@
 					
 				<tr>
 					<td><!-- First column: category with link to modal window -->
-						<a data-toggle="modal" data-target="#myModal">
+						<a data-toggle="modal" data-target="#myModal" data-name="<%= @category.name.to_s %>" data-desc="<%= @category.description.to_s %>" data-video="<%= @category.video %>">
 						  <%= @category.name.to_s.strip %>
 						</a>
 						<!-- Modal -->
-						  <%= render partial: "show", object: @category %>
+						  <%= render partial: "show" %>
 					</td>
 					<td> <!-- contains links to challenges -->
 							<% for @challenge in @category.challenges.order(:duration) %>

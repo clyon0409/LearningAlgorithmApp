@@ -1,19 +1,18 @@
+  <%= javascript_include_tag "category_modal" %>
+
  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"><%= @category.name.to_s.strip %></h4>
+          <h4 class="modal-title" id="myModalLabel"></h4>
         </div>
         <div class="modal-body">
-          <% unless @category.video.empty? %>
-            <iframe width="560" height="315" src="<%= @category.video%>" frameborder="0" allowfullscreen></iframe>
-           <% end %>
-          <%= @category.description %>
+          <div id='video'></div>
+          <p></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-    </div>
 </div>
