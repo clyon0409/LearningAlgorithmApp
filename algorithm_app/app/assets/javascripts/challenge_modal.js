@@ -12,10 +12,11 @@ $('document').ready(function() {
 			  var answer = button.data('answer');
 			  var duration = Math.floor(parseInt(button.data('duration'))/1000/60);
 			  var modal = $(this);
-			  console.log(duration);
+			  console.log(video);
 			  modal.find('.modal-title').text(name);
 			  modal.find('.modal-body p').text(content);
-			  modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>');
+			  if (video)
+			  	modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>');
 			  modal.find('#timer').html('<h3 class="timer text-center" data-minutes-left='+duration+'></h3>');
 	});
 

@@ -1,7 +1,7 @@
 $('document').ready(function() {
 
 	//console.log('got into modal function to grab data');
-	
+
 	$('#myModal').on('show.bs.modal', function (event) {
 		//console.log('got into modal function and event triggered');
 		  var button = $(event.relatedTarget); // Button that triggered the modal
@@ -14,7 +14,8 @@ $('document').ready(function() {
 		  //console.log(video);
 		  modal.find('.modal-title').text(name);
 		  modal.find('.modal-body p').text(content);
-		  modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>')
+		  if (video)
+		  	modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>')
 	 });
 
 	//function stops video from playing once the modal window has been closed
