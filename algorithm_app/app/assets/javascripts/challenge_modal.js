@@ -1,6 +1,7 @@
 $('document').ready(function() {
 	console.log('got into challenge modal function to grab data');
-		$('#challengeModal').on('show.bs.modal', function (event) {
+
+	$('#challengeModal').on('show.bs.modal', function (event) {
 			console.log('got into challenge modal function and event triggered');
 			  var button = $(event.relatedTarget); // Button that triggered the modal
 			  var name = button.data('name'); // Extract info from data-* attributes
@@ -14,7 +15,13 @@ $('document').ready(function() {
 			  console.log(duration);
 			  modal.find('.modal-title').text(name);
 			  modal.find('.modal-body p').text(content);
-			  modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>')
-			  modal.find('#timer').html('<h3 class="timer text-center" data-minutes-left='+ duration +'></h3>')
-		   });
+			  modal.find('#video').html('<iframe width="560" height="315" src="'+ video + '" frameborder="0" allowfullscreen></iframe>');
+			  modal.find('#timer').html('<h3 class="timer text-center" data-minutes-left='+duration+'></h3>');
+	});
+
+	//function stops video from playing once the modal window has been closed
+	$('#challengeModal').on('hidden.bs.modal', function (e) {
+  		//console.log('got into challenge modal hide function');
+        $("#challengeModal iframe").attr("src", $("#challengeModal iframe").attr("src"));
+	})
 });

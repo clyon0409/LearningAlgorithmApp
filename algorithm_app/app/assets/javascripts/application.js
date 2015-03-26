@@ -20,32 +20,10 @@
 //= require_tree .
 
 <script>
+	//needed to make bootstrap tool tips functional
+	//assumes tool tips are attached only to anchors
 	$(function(){
 	  $("a[rel='tooltip']").tooltip();
-
-	  $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
-		console.log('got into javascript function');
-        $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
-		});
-
-	  $(".modal-backdrop, #challengeModal .close, #challengeModal .btn").live("click", function() {
-		console.log('got into javascript function');
-        $("#challengeModal iframe").attr("src", $("#challengeModal iframe").attr("src"));
-		});
 	});
-
-	$('document').ready(function() {
-		$('#myModal').on('show.bs.modal', function (event) {
-			consolel.log('got into modal function to grab data');
-			  var button = $(event.relatedTarget) // Button that triggered the modal
-			  var data = button.data('object') // Extract info from data-* attributes
-			  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-			  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-			  var modal = $(this)
-			  modal.find('.modal-title').text(data.name)
-			  modal.find('.modal-body p').text(data.content)
-		   })
-	}
-
 </script>
 
