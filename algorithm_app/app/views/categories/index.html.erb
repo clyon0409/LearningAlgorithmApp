@@ -15,8 +15,8 @@
 						<a data-toggle="modal" data-target="#myModal" data-name="<%= @category.name.to_s %>" data-desc="<%= @category.description.to_s %>" data-video="<%= @category.video %>">
 						  <%= @category.name.to_s.strip %>
 						</a>
-						<!-- Modal -->
-						  <%= render partial: "show" %>
+						<!-- Modal for category descriptions and videos -->
+						<%= render partial: "show" %>
 					</td>
 					<td> <!-- contains links to challenges -->
 							<% for @challenge in @category.challenges.order(:duration) %>
@@ -34,7 +34,7 @@
 								 		end
 								 	%>
 									<button type="button" class="btn btn-default btn-xs">	 
-										<a data-toggle="modal"  data-target="#challengeModal">
+										<a data-toggle="modal"  data-target="#challengeModal" data-name='<%= @challenge.name %>' data-desc='<%= @challenge.content %>' data-video='<%= @challenge.video %>' data-answer='<%= @challenge.answer %>' data-duration='<%= @challenge.duration %>'>
 						  					<span data-toggle="tooltip" title='<%= tooltip_message%>'>
 						  					  		<%= @challenge.name.to_s.strip %>
 						  					<span>

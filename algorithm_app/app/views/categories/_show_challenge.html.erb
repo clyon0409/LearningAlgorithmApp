@@ -1,4 +1,5 @@
  <%= javascript_include_tag "timer" %>
+ <%= javascript_include_tag "challenge_modal" %>
  <%= stylesheet_link_tag "timer" %>
  
  <div class="modal fade" id="challengeModal" tabindex="-1" role="dialog" aria-labelledby="challengeModalLabel" aria-hidden="true">
@@ -6,28 +7,26 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="challengeModalLabel"><%= @challenge.name %></h4>
+          <h4 class="modal-title" id="challengeModalLabel"></h4>
         </div>
         <div class="modal-body">
           <div class="container-fluid"> <!-- needed to use Grid system -->
             <!-- ******* TIMER ELEMENT *********** -->
             <div class='row'> 
               <div class='col-md-1' ></div> 
-              <div class='col-md-10 label label-danger container2' style='height:50px'>
+              <div class='col-md-10 label bg-danger container2' style='height:50px'>
                 <div class="row">
                       <div class="col-xs-8 col-sm-4"></div>
                       <div class="col-xs-4 col-sm-4">
-                          <h3 class='timer text-center' data-minutes-left=<%= @challenge.duration.to_i/1000/60 %>></h3>
+                          <div id="timer"></div>
                       </div>
                       <div class="col-xs-4 col-sm-4"></div>
                 </div>
               </div>
               <div class='col-md-1' ></div> 
             </div>
-              <% unless @challenge.video.nil?%>
-                <iframe width="560" height="315" src="<%= @challenge.video%>" frameborder="0" allowfullscreen></iframe>
-              <% end %>
-              <p><%= @challenge.content %></p>
+              <div id='video'></div>
+              <p><small></small></p>
               <!--  *********** Upload Answer Elements ************** -->
               <div class='row'>
                 <div class='col-md-12'>

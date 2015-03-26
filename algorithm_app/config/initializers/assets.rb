@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( timer.js )
 Rails.application.config.assets.precompile += %w( timer.css )
 Rails.application.config.assets.precompile += %w( category_modal.js )
+Rails.application.config.assets.precompile += %w( challenge_modal.js )
