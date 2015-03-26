@@ -17,7 +17,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap/modal
 //= require jquery.simple.timer
-//= require timer
 //= require_tree .
 
 <script>
@@ -27,6 +26,11 @@
 	  $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
 		console.log('got into javascript function');
         $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+		});
+
+	  $(".modal-backdrop, #challengeModal .close, #challengeModal .btn").live("click", function() {
+		console.log('got into javascript function');
+        $("#challengeModal iframe").attr("src", $("#challengeModal iframe").attr("src"));
 		});
 	});
 
